@@ -5057,6 +5057,13 @@ react-native-onesignal@^3.6.1:
   dependencies:
     invariant "^2.2.2"
 
+react-native-push-notification-popup@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification-popup/-/react-native-push-notification-popup-1.4.0.tgz#917bb96666d0fd3c119276295a7360860ded003b"
+  integrity sha512-m79AdvliQNpVBtYVErUFDTu11+9I/sooUU687QuXxIfT6WLry3nyZ/784c+l3FGuPUNMPF1XDhyBukh/N7Q+iQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native@0.61.5:
   version "0.61.5"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.61.5.tgz#6e21acb56cbd75a3baeb1f70201a66f42600bba8"

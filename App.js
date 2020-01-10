@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from "react-native"
 import OneSignal from 'react-native-onesignal';
+import NotificationPopup from 'react-native-push-notification-popup';
 
 export default class App extends Component {
 
@@ -8,8 +9,8 @@ export default class App extends Component {
     super(properties);
     OneSignal.init("82e9d42d-1281-42e2-95e8-a1fad8067f12");
 
-    OneSignal.addEventListener('received', this.onReceived);
-    OneSignal.addEventListener('opened', this.onOpened);
+    OneSignal.addEventListener('received', this.onReceived.bind(this));
+    OneSignal.addEventListener('opened', this.onOpened.bind(this));
     OneSignal.addEventListener('ids', this.onIds);
   }
 
@@ -21,6 +22,15 @@ export default class App extends Component {
 
   onReceived(notification) {
     console.log("Notification received: ", notification);
+    this.popup.show({
+      onPress: function () { console.log('Pressed') },
+      appIconSource: require('./assests/icon.png'),
+      appTitle: 'RN Notifications',
+      timeText: 'Now',
+      title: 'Hello World',
+      body: 'This is a sample message.\ nTesting emoji 😀',
+      slideOutTime: 5000
+    });
   }
 
   onOpened(openResult) {
@@ -36,7 +46,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <View />
+      <View>
+        <NotificationPopup ref={ref => this.popup = ref} />
+      </View>
     )
   }
 }
